@@ -9,14 +9,15 @@ public class RegistroStudenti {
   }
 
   public void addStudenti(Studente studente) {
-    boolean pieno = true;
+    boolean inserito = false;
     for (int i = 0; i < elencoStudenti.length; i++) {
       if (elencoStudenti[i] == null) {
-        pieno = false;
+        inserito = true;
         elencoStudenti[i] = studente;
+        break;
       }
     }
-    if (pieno) {
+    if (!inserito) {
       System.out.println("il registro è completo");
     }
   }
@@ -24,7 +25,22 @@ public class RegistroStudenti {
   public void getElencoStudenti() {
     System.out.println("Il registro è composta da: ");
     for (int i = 0; i < elencoStudenti.length; i++) {
-      System.out.println(elencoStudenti[i]);
+      System.out.println(this.elencoStudenti[i].getStudenteCompleto());
     }
+  }
+
+  public void aggiungiSpazioRegistro(int grandezza) {
+    if (this.elencoStudenti.length > grandezza) {
+      System.out.println("Valore inserito non valido");
+    }
+    Studente[] appoggio = new Studente[this.elencoStudenti.length];
+    for (int i = 0; i < appoggio.length; i++) {
+      appoggio[i] = this.elencoStudenti[i];
+    }
+    Studente[] elencoStudentiNew = new Studente[grandezza];
+    for (int i = 0; i < appoggio.length; i++) {
+      elencoStudentiNew[i] = appoggio[i];
+    }
+    this.elencoStudenti = elencoStudentiNew;
   }
 }
