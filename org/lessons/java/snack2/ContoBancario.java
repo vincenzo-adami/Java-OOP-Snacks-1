@@ -23,7 +23,11 @@ public class ContoBancario {
   }
 
   void depositare(double valore) {
-    this.saldo += valore;
+    if (valore > 0) {
+      this.saldo += valore;
+    } else {
+      System.out.println("Il valore inserito è 0 o un numero non ammisibile. Ritenta.");
+    }
   }
 
   void prelevare(double valore) {
