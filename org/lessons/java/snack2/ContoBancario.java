@@ -6,12 +6,8 @@ public class ContoBancario {
   private double saldo;
 
   ContoBancario(String numConto) {
-    setNumConto(numConto);
-    this.saldo = 0;
-  }
-
-  private void setNumConto(String numConto) {
     this.numConto = numConto;
+    this.saldo = 0;
   }
 
   String getNumConto() {
